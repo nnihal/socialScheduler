@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ScheduleActivity extends AppCompatActivity {
@@ -22,6 +23,8 @@ public class ScheduleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
+        ButterKnife.bind(this);
+
 //        Post post1 = new Post();
 //        posts.add(post1);
 //        Post post2 = new Post();
