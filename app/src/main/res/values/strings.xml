@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Social Scheduler</string>
+    <string name="password">Password</string>
+    <string name="login">Login!</string>
+    <string name="login_with_instagram">Login</string>
+    <string name="login_header">Instagram Login</string>
+    <string name="twitter_login_header">Twitter Login</string>
+    <string name="social_scheduler">Social Scheduler</string>
+    <string name="twitter">Twitter</string>
+    <string name="instagram">Instagram</string>
+    <string name="pick_time">Pick Time</string>
+
+</resources>
