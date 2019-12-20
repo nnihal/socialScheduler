@@ -2,6 +2,7 @@ package com.saritekin.socialscheduler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class ScheduleActivity extends AppCompatActivity {
 
@@ -28,5 +30,11 @@ public class ScheduleActivity extends AppCompatActivity {
             PostAdapter adapter = new PostAdapter(this, posts);
             listView.setAdapter(adapter);
         }
+    }
+
+    @OnClick(R.id.add_button)
+    public void create_post(){
+        Intent intent = new Intent(this, CreatePost.class);
+        startActivity(intent);
     }
 }
