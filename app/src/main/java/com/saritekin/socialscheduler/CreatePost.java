@@ -24,7 +24,7 @@ public class CreatePost extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post);
 
-        Button buttonLoadImage = (Button) findViewById(R.id.add_image_button);
+        Button buttonLoadImage = findViewById(R.id.add_image_button);
         buttonLoadImage.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -56,7 +56,7 @@ public class CreatePost extends AppCompatActivity {
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
 
-            ImageView imageView = (ImageView) findViewById(R.id.imgView);
+            ImageView imageView = findViewById(R.id.imgView);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 
         }
