@@ -20,12 +20,13 @@ public class ScheduleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
-        Post post1 = new Post();
-        posts.add(post1);
-        Post post2 = new Post();
-        posts.add(post2);
-
-        PostAdapter adapter = new PostAdapter(this, posts);
-        listView.setAdapter(adapter);
+//        Post post1 = new Post();
+//        posts.add(post1);
+//        Post post2 = new Post();
+//        posts.add(post2);
+        if (!posts.isEmpty()) {
+            PostAdapter adapter = new PostAdapter(this, posts);
+            listView.setAdapter(adapter);
+        }
     }
 }
