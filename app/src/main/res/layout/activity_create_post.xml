@@ -22,20 +22,31 @@
         android:layout_gravity="center"
         android:text="@string/load_picture" />
 
-    <Button
-        android:id="@+id/date_set"
-        android:layout_width="wrap_content"
-        android:text="Date"
+    <EditText
+        android:id="@+id/in_date"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
-
+        android:layout_marginTop="10dp" />
 
     <Button
-        android:id="@+id/time_set"
+        android:id="@+id/btn_date"
         android:layout_width="wrap_content"
-        android:text="Time"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
+        android:text="SELECT DATE" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/in_time"
+        android:layout_gravity="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT TIME"
+        android:id="@+id/btn_time"
+        android:layout_gravity="center" />
+
 </LinearLayout>
