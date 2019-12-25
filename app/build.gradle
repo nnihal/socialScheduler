@@ -35,4 +35,6 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 
     implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
+
+    implementation 'pub.devrel:easypermissions:0.2.1'
 }

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class CreatePost extends AppCompatActivity {
@@ -24,25 +25,24 @@ public class CreatePost extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post);
 
-        Button buttonLoadImage = findViewById(R.id.add_image_button);
-        buttonLoadImage.setOnClickListener(new View.OnClickListener() {
+        ButterKnife.bind(this);
+    }
 
-            @Override
-            public void onClick(View arg0) {
 
-                Intent i = new Intent(
-                        Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-                startActivityForResult(i, RESULT_LOAD_IMAGE);
-            }
-        });
+    @OnClick(R.id.add_image_button)
+    public void load_img(){
+        Intent intent = new Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, RESULT_LOAD_IMAGE);
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        ButterKnife.bind(this);
 
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
             Uri selectedImage = data.getData();
@@ -60,7 +60,10 @@ public class CreatePost extends AppCompatActivity {
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 
         }
+    }
 
-
+    @OnClick(R.id.date_set)
+    public void date_setting(){
+        
     }
 }
