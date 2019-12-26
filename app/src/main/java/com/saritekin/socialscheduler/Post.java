@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 
 
 public class Post {
+
     private Bitmap img;
     private String caption;
     private String time;

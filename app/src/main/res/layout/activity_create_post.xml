@@ -49,4 +49,29 @@
         android:id="@+id/btn_time"
         android:layout_gravity="center" />
 
+    <TextView
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share on: "
+        android:textSize="20sp"/>
+    <Button
+        android:id="@+id/share_on_twitter"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Twitter"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        />
+
+    <Button
+        android:id="@+id/share_on_instagram"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Instagram"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        />
+
 </LinearLayout>

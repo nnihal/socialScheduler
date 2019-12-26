@@ -10,11 +10,19 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.widget.Button;
-import android.widget.DatePicker;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TimePicker;
+
+import com.google.firebase.database.annotations.Nullable;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Calendar;
 
@@ -25,36 +33,28 @@ import butterknife.OnClick;
 public class CreatePost extends AppCompatActivity {
 
     private static int RESULT_LOAD_IMAGE = 1;
+    private static int POST_REQUEST = 200;
     private int mYear, mMonth, mDay, mHour, mMinute;
+    private Post post = new Post();
+    ListenerRegistration listenerRegistration;
 
-//    @BindView(R.id.btn_date) Button btnDatePicker;
+    //    @BindView(R.id.btn_date) Button btnDatePicker;
 //    @BindView(R.id.btn_time) Button btnTimePicker;
     @BindView(R.id.in_date) EditText txtDate;
     @BindView(R.id.in_time) EditText txtTime;
+    public static final String TAG = "Timeline";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post);
-
         ButterKnife.bind(this);
-    }
-
-
-    @OnClick(R.id.add_image_button)
-    public void load_img(){
-        Intent intent = new Intent(
-                Intent.ACTION_PICK,
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, RESULT_LOAD_IMAGE);
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        ButterKnife.bind(this);
 
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
             Uri selectedImage = data.getData();
@@ -70,8 +70,17 @@ public class CreatePost extends AppCompatActivity {
 
             ImageView imageView = findViewById(R.id.imgView);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-
+            post.setImg(BitmapFactory.decodeFile(picturePath));
         }
+    }
+
+
+    @OnClick(R.id.add_image_button)
+    public void load_img(){
+        Intent intent = new Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, RESULT_LOAD_IMAGE);
     }
 
     @OnClick(R.id.btn_date)
@@ -83,16 +92,10 @@ public class CreatePost extends AppCompatActivity {
 
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                new DatePickerDialog.OnDateSetListener() {
+                (view, year, monthOfYear, dayOfMonth) ->
+                        txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year),
+                mYear, mMonth, mDay);
 
-                    @Override
-                    public void onDateSet(DatePicker view, int year,
-                                          int monthOfYear, int dayOfMonth) {
-
-                        txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-
-                    }
-                }, mYear, mMonth, mDay);
         datePickerDialog.show();
     }
 
@@ -116,4 +119,6 @@ public class CreatePost extends AppCompatActivity {
                 }, mHour, mMinute, false);
         timePickerDialog.show();
     }
+
+
 }
