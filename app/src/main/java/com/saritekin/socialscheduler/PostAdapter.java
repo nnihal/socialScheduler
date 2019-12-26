@@ -16,6 +16,8 @@ import butterknife.BindView;
 public class PostAdapter extends BaseAdapter {
 
     private List<Post> posts;
+
+
     @BindView(R.id.imageView_personpic) ImageView img;
     @BindView(R.id.textView_date) TextView date;
     @BindView(R.id.textView_time) TextView time;
@@ -23,7 +25,7 @@ public class PostAdapter extends BaseAdapter {
     private LayoutInflater inflater;
 
     public PostAdapter(Activity activity, List<Post> posts) {
-        this.posts = posts;
+        this.posts = ScheduleActivity.posts;
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
