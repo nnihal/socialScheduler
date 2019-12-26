@@ -8,7 +8,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp" />
 
-    <Button
+    <TextView
         android:id="@+id/textView_time"
         android:layout_width="148dp"
         android:layout_height="76dp"
@@ -18,10 +18,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="6dp"
         android:layout_toStartOf="@+id/textView_date"
-        android:layout_toEndOf="@+id/imageView_personpic"
-        android:text="@string/pick_time"
-        android:textSize="25dp"
-        android:onClick="showTimePickerDialog"/>
+        android:layout_toEndOf="@+id/imageView_personpic" />
 
     <TextView
         android:id="@+id/textView_date"
