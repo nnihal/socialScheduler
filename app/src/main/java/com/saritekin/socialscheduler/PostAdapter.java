@@ -18,9 +18,10 @@ public class PostAdapter extends BaseAdapter {
     private List<Post> posts;
 
 
-    @BindView(R.id.imageView_personpic) ImageView img;
-    @BindView(R.id.textView_date) TextView date;
-    @BindView(R.id.textView_time) TextView time;
+//    @BindView(R.id.imageView_personpic) ImageView img;
+//    @BindView(R.id.textView_date) TextView date;
+//    @BindView(R.id.textView_time) TextView time;
+
 
     private LayoutInflater inflater;
 
@@ -48,6 +49,9 @@ public class PostAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View rowView;
         rowView = inflater.inflate(R.layout.layout_listview_post_template, null);
+        ImageView img = rowView.findViewById(R.id.imageView_personpic);
+        TextView date = rowView.findViewById(R.id.textView_date);
+        TextView time = rowView.findViewById(R.id.textView_time);
         Post post = posts.get(position);
         img.setImageBitmap(post.getImg());
         date.setText(post.getDate());
