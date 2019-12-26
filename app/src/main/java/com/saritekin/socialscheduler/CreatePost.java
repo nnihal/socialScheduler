@@ -1,7 +1,5 @@
 package com.saritekin.socialscheduler;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -10,19 +8,11 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TimePicker;
 
-import com.google.firebase.database.annotations.Nullable;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.ListenerRegistration;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
@@ -36,13 +26,9 @@ public class CreatePost extends AppCompatActivity {
     private static int POST_REQUEST = 200;
     private int mYear, mMonth, mDay, mHour, mMinute;
     private Post post = new Post();
-    ListenerRegistration listenerRegistration;
 
-    //    @BindView(R.id.btn_date) Button btnDatePicker;
-//    @BindView(R.id.btn_time) Button btnTimePicker;
     @BindView(R.id.in_date) EditText txtDate;
     @BindView(R.id.in_time) EditText txtTime;
-    public static final String TAG = "Timeline";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,6 +56,7 @@ public class CreatePost extends AppCompatActivity {
 
             ImageView imageView = findViewById(R.id.imgView);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+
             post.setImg(BitmapFactory.decodeFile(picturePath));
         }
     }
@@ -97,6 +84,7 @@ public class CreatePost extends AppCompatActivity {
                 mYear, mMonth, mDay);
 
         datePickerDialog.show();
+        post.setDate(datePickerDialog.toString());
     }
 
     @OnClick(R.id.btn_time)
@@ -118,6 +106,23 @@ public class CreatePost extends AppCompatActivity {
                     }
                 }, mHour, mMinute, false);
         timePickerDialog.show();
+        post.setTime(timePickerDialog.toString());
+    }
+
+    @OnClick(R.id.share_on_twitter)
+    public void share_twitter(){
+        post.setShare_on("twitter");
+        ScheduleActivity.posts.add(post);
+        Intent intent = new Intent(this, ScheduleActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.share_on_instagram)
+    public void share_instagram(){
+        post.setShare_on("instagram");
+        ScheduleActivity.posts.add(post);
+        Intent intent = new Intent(this, ScheduleActivity.class);
+        startActivity(intent);
     }
 
 

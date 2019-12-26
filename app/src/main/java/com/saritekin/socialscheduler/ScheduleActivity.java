@@ -15,9 +15,10 @@ import butterknife.OnClick;
 
 public class ScheduleActivity extends AppCompatActivity {
 
+    public static List<Post> posts = new ArrayList<>();
 
     @BindView(R.id.schedule_listview) ListView listView;
-    List<Post> posts = new ArrayList<>();
+//    List<Post> posts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
