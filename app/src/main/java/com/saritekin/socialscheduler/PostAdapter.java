@@ -17,12 +17,6 @@ public class PostAdapter extends BaseAdapter {
 
     private List<Post> posts;
 
-
-//    @BindView(R.id.imageView_personpic) ImageView img;
-//    @BindView(R.id.textView_date) TextView date;
-//    @BindView(R.id.textView_time) TextView time;
-
-
     private LayoutInflater inflater;
 
     public PostAdapter(Activity activity, List<Post> posts) {

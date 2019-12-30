@@ -79,12 +79,15 @@ public class CreatePost extends AppCompatActivity {
 
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                (view, year, monthOfYear, dayOfMonth) ->
-                        txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year),
+                (view, year, monthOfYear, dayOfMonth) -> {
+                    txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                    post.setDate(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                },
                 mYear, mMonth, mDay);
 
+
         datePickerDialog.show();
-        post.setDate(datePickerDialog.toString());
+//        post.setDate(datePickerDialog.toString());
     }
 
     @OnClick(R.id.btn_time)
@@ -103,10 +106,11 @@ public class CreatePost extends AppCompatActivity {
                                           int minute) {
 
                         txtTime.setText(hourOfDay + ":" + minute);
+                        post.setTime(hourOfDay + ":" + minute);
                     }
                 }, mHour, mMinute, false);
         timePickerDialog.show();
-        post.setTime(timePickerDialog.toString());
+//        post.setTime(timePickerDialog.toString());
     }
 
     @OnClick(R.id.share_on_twitter)
