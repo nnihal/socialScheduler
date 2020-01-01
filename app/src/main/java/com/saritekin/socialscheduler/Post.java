@@ -3,13 +3,20 @@ package com.saritekin.socialscheduler;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.google.gson.annotations.SerializedName;
+
 
 public class Post {
 
+    @SerializedName("img_path")
     private String img_path;
+    @SerializedName("caption")
     private String caption;
+    @SerializedName("time")
     private String time;
+    @SerializedName("date")
     private String date;
+    @SerializedName("share_on")
     private String share_on;
 
     public Post(){}

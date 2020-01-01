@@ -123,8 +123,8 @@ public class CreatePost extends AppCompatActivity {
         post.setShare_on("twitter");
         ScheduleActivity.posts.add(post);
         // save to firebase realtime database
-//        mDatabase = FirebaseDatabase.getInstance().getReference();
-//        mDatabase.child("users").child(User.id).setValue(post);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("users").child(User.id).setValue(post);
 
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
