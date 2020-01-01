@@ -1,23 +1,24 @@
 package com.saritekin.socialscheduler;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 
 public class Post {
 
-    private Bitmap img;
+    private String img_path;
     private String caption;
     private String time;
     private String date;
     private String share_on;
 
-    public Bitmap getImg() {
-        return img;
+    public Post(){}
+
+    public Bitmap getImg_path() {
+        return BitmapFactory.decodeFile(String.valueOf(img_path));
     }
 
-    public void setImg(Bitmap img) {
-        this.img = img;
-    }
+    public void setImg_path(String img_path) { this.img_path = img_path; }
 
     public String getCaption() {
         return caption;
@@ -49,5 +50,9 @@ public class Post {
 
     public void setShare_on(String share_on) {
         this.share_on = share_on;
+    }
+
+    public void to_List(){
+//        return ({"img_path": getImg_path(), "caption": getCaption()});
     }
 }

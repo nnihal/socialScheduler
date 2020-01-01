@@ -45,7 +45,7 @@ public class PostAdapter extends BaseAdapter {
         TextView date = rowView.findViewById(R.id.textView_date);
         TextView time = rowView.findViewById(R.id.textView_time);
         Post post = posts.get(position);
-        img.setImageBitmap(post.getImg());
+        img.setImageBitmap(post.getImg_path());
         date.setText(post.getDate());
         time.setText(post.getTime());
 

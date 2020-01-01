@@ -62,7 +62,7 @@ public class CreatePost extends AppCompatActivity {
             ImageView imageView = findViewById(R.id.imgView);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 
-            post.setImg(BitmapFactory.decodeFile(picturePath));
+            post.setImg_path(picturePath);
         }
     }
 
@@ -123,8 +123,8 @@ public class CreatePost extends AppCompatActivity {
         post.setShare_on("twitter");
         ScheduleActivity.posts.add(post);
         // save to firebase realtime database
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("users").child(User.id).setValue(post);
+//        mDatabase = FirebaseDatabase.getInstance().getReference();
+//        mDatabase.child("users").child(User.id).setValue(post);
 
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
