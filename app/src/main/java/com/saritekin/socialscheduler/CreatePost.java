@@ -14,6 +14,9 @@ import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
 
 import butterknife.BindView;
@@ -26,6 +29,8 @@ public class CreatePost extends AppCompatActivity {
     private static int POST_REQUEST = 200;
     private int mYear, mMonth, mDay, mHour, mMinute;
     private Post post = new Post();
+
+    private DatabaseReference mDatabase;
 
     @BindView(R.id.in_date) EditText txtDate;
     @BindView(R.id.in_time) EditText txtTime;
@@ -117,6 +122,10 @@ public class CreatePost extends AppCompatActivity {
     public void share_twitter(){
         post.setShare_on("twitter");
         ScheduleActivity.posts.add(post);
+        // save to firebase realtime database
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("users").child(User.id).setValue(post);
+
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
     }

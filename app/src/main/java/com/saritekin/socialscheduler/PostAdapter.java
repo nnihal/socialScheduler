@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import butterknife.BindView;
-
 public class PostAdapter extends BaseAdapter {
 
     private List<Post> posts;

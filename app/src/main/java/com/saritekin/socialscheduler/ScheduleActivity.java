@@ -26,10 +26,7 @@ public class ScheduleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_schedule);
         ButterKnife.bind(this);
 
-//        Post post1 = new Post();
-//        posts.add(post1);
-//        Post post2 = new Post();
-//        posts.add(post2);
+
         if (!posts.isEmpty()) {
             PostAdapter adapter = new PostAdapter(this, posts);
             listView.setAdapter(adapter);

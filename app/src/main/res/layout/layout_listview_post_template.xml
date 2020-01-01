@@ -18,7 +18,8 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="6dp"
         android:layout_toStartOf="@+id/textView_date"
-        android:layout_toEndOf="@+id/imageView_personpic" />
+        android:layout_toEndOf="@+id/imageView_personpic"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/textView_date"
@@ -26,7 +27,7 @@
         android:layout_height="76dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        />
+        android:textAlignment="center" />
 
 
 </RelativeLayout>
