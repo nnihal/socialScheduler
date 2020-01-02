@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 
 public class Post {
@@ -75,5 +76,22 @@ public class Post {
         map.put("date", date);
         map.put("share_on", share_on);
         return map;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Post post = (Post) o;
+        return img_path.equals(post.img_path) &&
+                caption.equals(post.caption) &&
+                time.equals(post.time) &&
+                date.equals(post.date) &&
+                share_on.equals(post.share_on);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(img_path, caption, time, date, share_on);
     }
 }
