@@ -3,8 +3,6 @@ package com.saritekin.socialscheduler;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import java.util.List;
-
 
 public class Post {
 
@@ -15,6 +13,14 @@ public class Post {
     private String share_on;
 
     public Post(){}
+
+    public Post(String img_path, String caption, String time, String date, String share_on) {
+        this.img_path = img_path;
+        this.caption = caption;
+        this.time = time;
+        this.date = date;
+        this.share_on = share_on;
+    }
 
     public Bitmap getImg_path() {
         return BitmapFactory.decodeFile(String.valueOf(img_path));
