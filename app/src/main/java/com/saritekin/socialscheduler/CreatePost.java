@@ -30,6 +30,8 @@ public class CreatePost extends AppCompatActivity {
     private int mYear, mMonth, mDay, mHour, mMinute;
     private Post post = new Post();
 
+    private String caption, date, img_path, share_on, time;
+
     private DatabaseReference mDatabase;
 
     @BindView(R.id.in_date) EditText txtDate;
@@ -63,6 +65,7 @@ public class CreatePost extends AppCompatActivity {
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 
             post.setImg_path(picturePath);
+            img_path = picturePath;
         }
     }
 
@@ -87,6 +90,7 @@ public class CreatePost extends AppCompatActivity {
                 (view, year, monthOfYear, dayOfMonth) -> {
                     txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
                     post.setDate(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                    date = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
                 },
                 mYear, mMonth, mDay);
 
@@ -112,6 +116,7 @@ public class CreatePost extends AppCompatActivity {
 
                         txtTime.setText(hourOfDay + ":" + minute);
                         post.setTime(hourOfDay + ":" + minute);
+                        time = hourOfDay + ":" + minute;
                     }
                 }, mHour, mMinute, false);
         timePickerDialog.show();
@@ -123,8 +128,9 @@ public class CreatePost extends AppCompatActivity {
         post.setShare_on("twitter");
         ScheduleActivity.posts.add(post);
         // save to firebase realtime database
+        caption = "captionik";
 
-        Post postik = new Post("asgdad", "agsdgasdg", "asdgasdgas", "gasdgasdga", "gasgasdg");
+        Post postik = new Post(img_path, caption, time, date, share_on);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         String key = mDatabase.push().getKey();
