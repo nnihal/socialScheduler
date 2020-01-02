@@ -9,11 +9,11 @@ import java.util.Objects;
 
 public class Post {
 
-    private String img_path;
-    private String caption;
-    private String time;
-    private String date;
-    private String share_on;
+    private String img_path = "";
+    private String caption = "";
+    private String time = "";
+    private String date = "";
+    private String share_on = "";
 
     public Post(){}
 
