@@ -15,8 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +23,7 @@ import butterknife.OnClick;
 
 public class ScheduleActivity extends AppCompatActivity {
 
-    public static List<Post> posts = new ArrayList<>();
+    public static HashSet<Post> posts = new HashSet<>();
 
     @BindView(R.id.schedule_listview) ListView listView;
 //    List<Post> posts = new ArrayList<>();

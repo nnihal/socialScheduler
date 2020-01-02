@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class PostAdapter extends BaseAdapter {
@@ -17,7 +18,7 @@ public class PostAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
 
-    public PostAdapter(Activity activity, List<Post> posts) {
+    public PostAdapter(Activity activity, HashSet<Post> posts) {
         this.posts = ScheduleActivity.posts;
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
