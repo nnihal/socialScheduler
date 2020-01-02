@@ -20,7 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/load_picture" />
+        android:text="@string/load_picture"
+        android:theme="@style/Button.White"/>
 
     <EditText
         android:id="@+id/in_date"

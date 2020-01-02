@@ -11,5 +11,7 @@
     <string name="pick_time">Pick Time</string>
     <string name="plus">+</string>
     <string name="load_picture">Load Picture</string>
+    <string name="developed_with">Made with 💛</string>
+    <string name="login_with">Login with:</string>
 
 </resources>

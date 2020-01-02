@@ -124,7 +124,9 @@ public class CreatePost extends AppCompatActivity {
         ScheduleActivity.posts.add(post);
         // save to firebase realtime database
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("users").child(User.id).setValue(post.toString());
+//        String key = mDatabase.push().getKey();
+//        DatabaseReference db =
+        mDatabase.child("users").child(User.id).setValue(post);
 
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
