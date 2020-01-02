@@ -34,7 +34,9 @@ public class ScheduleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
         ButterKnife.bind(this);
-        getDataFromFirebase();
+        if (posts.isEmpty()) {
+            getDataFromFirebase();
+        }
 
         if (!posts.isEmpty()) {
             PostAdapter adapter = new PostAdapter(this, posts);
@@ -75,9 +77,7 @@ public class ScheduleActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot p: dataSnapshot.getChildren()) {
-                    if (posts.isEmpty()) {
-                        posts.add(p.getValue(Post.class));
-                    }
+                    posts.add(p.getValue(Post.class));
                 }
             }
 
