@@ -24,10 +24,10 @@ public class Post {
         this.share_on = share_on;
     }
 
-    public Bitmap getImg_path() {
-        return BitmapFactory.decodeFile(String.valueOf(img_path));
+    public String getImg_path() {
+        return img_path;
     }
-    public String getImg_path_as_string() {return img_path;}
+    public Bitmap getImg_path_as_bitmap() {return BitmapFactory.decodeFile(String.valueOf(img_path));}
 
     public void setImg_path(String img_path) { this.img_path = img_path; }
 

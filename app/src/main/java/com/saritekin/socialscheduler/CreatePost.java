@@ -125,8 +125,7 @@ public class CreatePost extends AppCompatActivity {
         // save to firebase realtime database
         mDatabase = FirebaseDatabase.getInstance().getReference();
         String key = mDatabase.push().getKey();
-//        DatabaseReference db =
-        mDatabase.child("users").child(User.id).child("posts").child(key).setValue(post.toMap());
+        mDatabase.child("users").child(User.id).child("posts").child(key).setValue(post);
 
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
@@ -140,11 +139,28 @@ public class CreatePost extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void saveToFirebase(Post post){
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference("users");
-        database.child(User.id);
-
-    }
+//    public void getDataFromFirebase(Post post){
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference ref = database.getReference("users/"+User.id+"/posts");
+//
+//        ref.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                for (DataSnapshot p: dataSnapshot.getChildren()) {
+//                    Post post = new Post();
+//                    p.getValue();
+//                    ScheduleActivity.posts.add(post);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        })
+//
+//
+//    }
 
 
 }
