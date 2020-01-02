@@ -126,7 +126,7 @@ public class CreatePost extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 //        String key = mDatabase.push().getKey();
 //        DatabaseReference db =
-        mDatabase.child("users").child(User.id).setValue(post.getClass());
+        mDatabase.child("users").child(User.id).setValue(post.toMap());
 
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);

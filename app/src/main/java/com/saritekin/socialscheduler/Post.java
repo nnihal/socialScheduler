@@ -3,6 +3,8 @@ package com.saritekin.socialscheduler;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import java.util.HashMap;
+
 
 public class Post {
 
@@ -63,5 +65,15 @@ public class Post {
 
     public String toString(){
         return "Post{img_path='"+img_path+"', caption='" + caption + "', time='" + time + "', date='"+ date+ "', share_on='"+ share_on + "'}";
+    }
+
+    public HashMap<String, String> toMap(){
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("img_path", img_path);
+        map.put("caption", caption);
+        map.put("time", time);
+        map.put("date", date);
+        map.put("share_on", share_on);
+        return map;
     }
 }
