@@ -12,10 +12,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TimePicker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 
@@ -29,8 +33,6 @@ public class CreatePost extends AppCompatActivity {
     private static int POST_REQUEST = 200;
     private int mYear, mMonth, mDay, mHour, mMinute;
     private Post post = new Post();
-
-    private String caption, date, img_path, share_on, time;
 
     private DatabaseReference mDatabase;
 
@@ -65,7 +67,6 @@ public class CreatePost extends AppCompatActivity {
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 
             post.setImg_path(picturePath);
-            img_path = picturePath;
         }
     }
 
@@ -90,7 +91,6 @@ public class CreatePost extends AppCompatActivity {
                 (view, year, monthOfYear, dayOfMonth) -> {
                     txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
                     post.setDate(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-                    date = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
                 },
                 mYear, mMonth, mDay);
 
@@ -116,7 +116,6 @@ public class CreatePost extends AppCompatActivity {
 
                         txtTime.setText(hourOfDay + ":" + minute);
                         post.setTime(hourOfDay + ":" + minute);
-                        time = hourOfDay + ":" + minute;
                     }
                 }, mHour, mMinute, false);
         timePickerDialog.show();
@@ -128,14 +127,14 @@ public class CreatePost extends AppCompatActivity {
         post.setShare_on("twitter");
         ScheduleActivity.posts.add(post);
         // save to firebase realtime database
-        caption = "captionik";
+        post.setCaption("captionik");
 
 //        Post postik;
 //        postik = new Post(img_path, caption, time, date, share_on);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         String key = mDatabase.push().getKey();
-        mDatabase.child("users").child(User.id).child("posts").child(key).setValue(new Post(img_path, caption, time, date, share_on));
+        mDatabase.child("users").child(User.id).child("posts").child(key).setValue(post.toMap());
 
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
@@ -149,28 +148,27 @@ public class CreatePost extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    public void getDataFromFirebase(Post post){
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference ref = database.getReference("users/"+User.id+"/posts");
-//
-//        ref.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                for (DataSnapshot p: dataSnapshot.getChildren()) {
-//                    Post post = new Post();
-//                    p.getValue();
-//                    ScheduleActivity.posts.add(post);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        })
-//
-//
-//    }
+    public void getDataFromFirebase(Post post){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("users/"+User.id+"/posts");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot p: dataSnapshot.getChildren()) {
+                    Post post = new Post();
+                    ScheduleActivity.posts.add(p.getValue(Post.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
 
 
 }
