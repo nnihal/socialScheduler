@@ -18,7 +18,7 @@ public class PostAdapter extends BaseAdapter {
     private LayoutInflater inflater;
 
     public PostAdapter(Activity activity, List<Post> posts) {
-        this.posts = ScheduleActivity.posts;
+        this.posts = posts;
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
