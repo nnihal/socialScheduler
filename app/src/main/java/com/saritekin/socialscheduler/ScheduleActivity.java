@@ -24,7 +24,7 @@ import butterknife.OnClick;
 
 public class ScheduleActivity extends AppCompatActivity {
 
-    public static List<Post> posts = new ArrayList<>();
+    public List<Post> posts = new ArrayList<>();
 
     @BindView(R.id.schedule_listview) ListView listView;
 //    List<Post> posts = new ArrayList<>();
@@ -75,9 +75,7 @@ public class ScheduleActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot p: dataSnapshot.getChildren()) {
-                    if (!ScheduleActivity.posts.contains(p.getValue(Post.class))) {
-                        ScheduleActivity.posts.add(p.getValue(Post.class));
-                    }
+                    posts.add(p.getValue(Post.class));
                 }
             }
 
