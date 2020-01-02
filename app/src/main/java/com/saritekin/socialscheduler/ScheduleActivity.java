@@ -1,10 +1,12 @@
 package com.saritekin.socialscheduler;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +35,35 @@ public class ScheduleActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
     @OnClick(R.id.add_button)
     public void create_post(){
         Intent intent = new Intent(this, CreatePost.class);
         startActivity(intent);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id){
+            case R.id.paylas:
+                return true;
+
+            case R.id.ayarlar:
+                return true;
+
+            case R.id.gonder:
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
