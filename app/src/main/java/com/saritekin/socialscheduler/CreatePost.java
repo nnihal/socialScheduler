@@ -130,11 +130,12 @@ public class CreatePost extends AppCompatActivity {
         // save to firebase realtime database
         caption = "captionik";
 
-        Post postik = new Post(img_path, caption, time, date, share_on);
+//        Post postik;
+//        postik = new Post(img_path, caption, time, date, share_on);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         String key = mDatabase.push().getKey();
-        mDatabase.child("users").child(User.id).child("posts").child(key).setValue(postik);
+        mDatabase.child("users").child(User.id).child("posts").child(key).setValue(new Post(img_path, caption, time, date, share_on));
 
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
