@@ -4,24 +4,24 @@
     android:layout_height="wrap_content"
     android:layout_width="wrap_content">
 
-    <item
-        android:id="@+id/paylas"
-        android:icon="@android:drawable/ic_menu_share"
-        android:orderInCategory="1"
-        android:title="Paylaş"
-        app:showAsAction="always" />
+<!--    <item-->
+<!--        android:id="@+id/paylas"-->
+<!--        android:icon="@android:drawable/ic_menu_share"-->
+<!--        android:orderInCategory="1"-->
+<!--        android:title="Paylaş"-->
+<!--        app:showAsAction="always" />-->
 
     <item
-        android:id="@+id/ayarlar"
+        android:id="@+id/settings"
         android:icon="@android:drawable/ic_menu_preferences"
         android:orderInCategory="1"
-        android:title="Ayarlar"
+        android:title="Settings"
         app:showAsAction="never" />
-
-    <item
-        android:id="@+id/gonder"
-        android:icon="@android:drawable/ic_menu_send"
-        android:orderInCategory="2"
-        android:title="Gönder"
-        app:showAsAction="ifRoom|withText" />
+<!--    -->
+<!--    <item-->
+<!--        android:id="@+id/gonder"-->
+<!--        android:icon="@android:drawable/ic_menu_send"-->
+<!--        android:orderInCategory="2"-->
+<!--        android:title="Gönder"-->
+<!--        app:showAsAction="ifRoom|withText" />-->
 </menu>

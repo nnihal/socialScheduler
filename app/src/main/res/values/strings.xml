@@ -29,5 +29,8 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="todo">TODO</string>
+    <string name="share_crash_reports">Share crash reports</string>
+    <string name="notification_after_sending">Notification after sending</string>
 
 </resources>

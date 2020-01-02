@@ -52,15 +52,9 @@ public class ScheduleActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         switch (id){
-            case R.id.paylas:
-                return true;
-
-            case R.id.ayarlar:
-                return true;
-
-            case R.id.gonder:
-                return true;
-
+            case R.id.settings:
+                Intent intent = new Intent(this, Settings.class);
+                startActivity(intent);
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Settings"></activity>
         <activity android:name=".CreatePost" />
         <activity android:name=".ScheduleActivity" />
         <activity android:name=".MainActivity" />
