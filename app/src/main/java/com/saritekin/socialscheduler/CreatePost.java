@@ -121,7 +121,7 @@ public class CreatePost extends AppCompatActivity {
     @OnClick(R.id.share_on_twitter)
     public void share_twitter(){
         post.setShare_on("twitter");
-        ScheduleActivity.posts.add(post);
+//        ScheduleActivity.posts.add(post);
         // save to firebase realtime database
         post.setCaption("captionik");
 
@@ -139,7 +139,7 @@ public class CreatePost extends AppCompatActivity {
     @OnClick(R.id.share_on_instagram)
     public void share_instagram(){
         post.setShare_on("instagram");
-        ScheduleActivity.posts.add(post);
+//        ScheduleActivity.posts.add(post);
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
     }
