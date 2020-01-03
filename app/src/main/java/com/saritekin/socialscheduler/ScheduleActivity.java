@@ -36,9 +36,7 @@ public class ScheduleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_schedule);
         ButterKnife.bind(this);
 
-        if (posts.isEmpty()) {
-            getDataFromFirebase();
-        }
+        getDataFromFirebase();
         List<Post> postsList = new ArrayList<Post>();
         postsList.clear();
         postsList.addAll(posts);
