@@ -1,7 +1,9 @@
 package com.saritekin.socialscheduler;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +23,11 @@ public class InstagramLogin extends AppCompatActivity {
 
     @OnClick(R.id.login_button_instagram)
     public void login(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("login_instagram", "yes");
+        editor.apply();
+
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
     }

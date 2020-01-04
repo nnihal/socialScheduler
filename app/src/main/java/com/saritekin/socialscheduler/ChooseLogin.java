@@ -17,7 +17,7 @@ public class ChooseLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         // "login","no" means default string value is "no", so if you didn't set yes after login, it will be no as default
-        if(preferences.getString("login_twitter", "no").equals("yes")|| preferences.getString("login_instagram", "no").equals("yes")){
+        if(preferences.getString("login_twitter", "no").equals("yes") || preferences.getString("login_instagram", "no").equals("yes")){
             Intent intent = new Intent(this, ScheduleActivity.class);
             startActivity(intent);
         }
@@ -30,20 +30,12 @@ public class ChooseLogin extends AppCompatActivity {
 
     @OnClick(R.id.twitter_button)
     public void with_twitter(){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("login_twitter", "yes");
-        editor.apply();
         Intent intent = new Intent(this, TwitterLogin.class);
         startActivity(intent);
     }
 
     @OnClick(R.id.instagram_button)
     public void with_Instagram(){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("login_instagram", "yes");
-        editor.apply();
         Intent intent = new Intent(this, InstagramLogin.class);
         startActivity(intent);
     }
