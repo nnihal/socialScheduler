@@ -30,18 +30,20 @@ public class ChooseLogin extends AppCompatActivity {
 
     @OnClick(R.id.twitter_button)
     public void with_twitter(){
-        SharedPreferences.Editor editor = (SharedPreferences.Editor) PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("login_twitter", "yes");
-        editor.commit();
+        editor.apply();
         Intent intent = new Intent(this, TwitterLogin.class);
         startActivity(intent);
     }
 
     @OnClick(R.id.instagram_button)
     public void with_Instagram(){
-        SharedPreferences.Editor editor = (SharedPreferences.Editor) PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("login_instagram", "yes");
-        editor.commit();
+        editor.apply();
         Intent intent = new Intent(this, InstagramLogin.class);
         startActivity(intent);
     }
