@@ -36,8 +36,6 @@ public class ScheduleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_schedule);
-
         String report = "";
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
@@ -58,11 +56,14 @@ public class ScheduleActivity extends AppCompatActivity {
         List<Post> postsList = new ArrayList<Post>();
         postsList.clear();
         postsList.addAll(posts);
+
+        ButterKnife.bind(this);
         if (!posts.isEmpty()) {
             PostAdapter adapter = new PostAdapter(this, postsList);
             listView.setAdapter(adapter);
         }
-        ButterKnife.bind(this);
+        setContentView(R.layout.activity_schedule);
+
     }
 
     @Override
