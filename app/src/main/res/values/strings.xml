@@ -32,5 +32,6 @@
     <string name="todo">TODO</string>
     <string name="share_crash_reports">Share crash reports</string>
     <string name="notification_after_sending">Notification after sending</string>
+    <string name="instagram_login">Instagram Login</string>
 
 </resources>
