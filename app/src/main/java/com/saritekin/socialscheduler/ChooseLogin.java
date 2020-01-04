@@ -16,6 +16,9 @@ public class ChooseLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ScheduleActivity.getDataFromFirebase();
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         // "login","no" means default string value is "no", so if you didn't set yes after login, it will be no as default
         if(preferences.getString("login_twitter", "no").equals("yes") || preferences.getString("login_instagram", "no").equals("yes")){
