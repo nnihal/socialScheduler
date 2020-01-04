@@ -52,8 +52,23 @@ public class ScheduleActivity extends AppCompatActivity {
         }
         Toast.makeText(this,report, Toast.LENGTH_LONG).show( );
 
-        getDataFromFirebase();
-        List<Post> postsList = new ArrayList<Post>();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("users/"+User.id+"/posts");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot p: dataSnapshot.getChildren()) {
+                    posts.add(p.getValue(Post.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        List<Post> postsList = new ArrayList<>();
         postsList.clear();
         postsList.addAll(posts);
 
