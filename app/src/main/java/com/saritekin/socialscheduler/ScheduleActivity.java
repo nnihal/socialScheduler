@@ -1,10 +1,13 @@
 package com.saritekin.socialscheduler;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +38,22 @@ public class ScheduleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
         ButterKnife.bind(this);
+
+        String report = "";
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        if(preferences.getString("login_twitter", "no").equals("yes")){
+            report = report + "login_twitter = yes \n";
+        } else if (preferences.getString("login_twitter", "no").equals("no")){
+            report = report + "login_twitter = no \n";
+        }
+        if(preferences.getString("login_instagram", "no").equals("yes")){
+            report = report + "login_instagram = yes \n";
+
+        } else if (preferences.getString("login_instagram", "no").equals("no")){
+            report = report + "login_instagram = no \n";
+        }
+        Toast.makeText(this,report, Toast.LENGTH_LONG).show( );
 
         getDataFromFirebase();
         List<Post> postsList = new ArrayList<Post>();
