@@ -25,7 +25,7 @@ public class Settings extends AppCompatActivity {
         ButterKnife.bind(this);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-        switch_twitter.setChecked(preferences.getString("login_twitter", "no").equals("no"));
+        switch_twitter.setChecked(preferences.getString("login_twitter", "no").equals("yes"));
         switch_instagram.setChecked(preferences.getString("login_instagram", "no").equals("yes"));
 
         switch_twitter.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
