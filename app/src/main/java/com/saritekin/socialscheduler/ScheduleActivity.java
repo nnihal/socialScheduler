@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -61,10 +62,11 @@ public class ScheduleActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         if (!posts.isEmpty()) {
+            Log.d("TAG_TEST", "SETTING ADAPTER DATA: " + posts);
+
             PostAdapter adapter = new PostAdapter(this, postsList);
             listView.setAdapter(adapter);
         }
-
     }
 
     @Override
@@ -102,6 +104,7 @@ public class ScheduleActivity extends AppCompatActivity {
                 for (DataSnapshot p: dataSnapshot.getChildren()) {
                     posts.add(p.getValue(Post.class));
                 }
+                Log.d("TAG_TEST", "onDataChange: " + posts);
             }
 
             @Override
