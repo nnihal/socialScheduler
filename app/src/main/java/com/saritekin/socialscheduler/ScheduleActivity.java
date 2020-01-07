@@ -30,6 +30,7 @@ import butterknife.OnClick;
 public class ScheduleActivity extends AppCompatActivity {
 
     public static HashSet<Post> posts = new HashSet<>();
+    PostAdapter adapter;
 
     @BindView(R.id.schedule_listview) ListView listView;
 //    List<Post> posts = new ArrayList<>();
@@ -64,7 +65,7 @@ public class ScheduleActivity extends AppCompatActivity {
         if (!posts.isEmpty()) {
             Log.d("TAG_TEST", "SETTING ADAPTER DATA: " + posts);
 
-            PostAdapter adapter = new PostAdapter(this, postsList);
+            adapter = new PostAdapter(this, postsList);
             listView.setAdapter(adapter);
         }
     }
@@ -94,7 +95,7 @@ public class ScheduleActivity extends AppCompatActivity {
         }
     }
 
-    public static void getDataFromFirebase(){
+    public  void getDataFromFirebase(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("users/"+User.id+"/posts");
 
@@ -104,6 +105,9 @@ public class ScheduleActivity extends AppCompatActivity {
                 for (DataSnapshot p: dataSnapshot.getChildren()) {
                     posts.add(p.getValue(Post.class));
                 }
+                adapter.getPosts().clear();
+                adapter.getPosts().addAll(posts);
+                adapter.notifyDataSetChanged();
                 Log.d("TAG_TEST", "onDataChange: " + posts);
             }
 

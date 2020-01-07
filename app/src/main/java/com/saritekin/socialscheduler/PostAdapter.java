@@ -52,4 +52,7 @@ public class PostAdapter extends BaseAdapter {
         return rowView;
     }
 
+    public List<Post> getPosts() {
+        return posts;
+    }
 }
