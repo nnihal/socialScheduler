@@ -135,7 +135,6 @@ public class CreatePost extends AppCompatActivity {
         // save to firebase realtime database
 //        post.setCaption("captionik");
         post.setCaption(txtPlatform.getText().toString());
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
         String key = mDatabase.push().getKey();
         mDatabase.child("users").child(User.id).child("posts").child(key).setValue(post.toMap());

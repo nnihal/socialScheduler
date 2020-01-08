@@ -27,6 +27,7 @@
         android:theme="@style/Button.White" />
 
     <EditText
+        android:id="@+id/textView_platform"
         android:layout_height="wrap_content"
         android:hint="Write caption..."
         android:layout_gravity="center"
