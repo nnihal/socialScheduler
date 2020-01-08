@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TimePicker;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
@@ -37,6 +38,8 @@ public class CreatePost extends AppCompatActivity {
 
     @BindView(R.id.in_date) EditText txtDate;
     @BindView(R.id.in_time) EditText txtTime;
+
+    @Nullable
     @BindView(R.id.textView_platform) EditText txtPlatform;
 
     @Override
