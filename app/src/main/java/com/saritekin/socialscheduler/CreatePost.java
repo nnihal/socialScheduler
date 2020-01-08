@@ -151,6 +151,10 @@ public class CreatePost extends AppCompatActivity {
         post.setShare_on("instagram");
         post.setCaption(txtPlatform.getText().toString());
 //        ScheduleActivity.posts.add(post);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        String key = mDatabase.push().getKey();
+        mDatabase.child("users").child(User.id).child("posts").child(key).setValue(post.toMap());
+
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
     }
