@@ -1,5 +1,6 @@
 package com.saritekin.socialscheduler;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
@@ -38,6 +39,7 @@ public class PostAdapter extends BaseAdapter {
         return position;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View rowView;
@@ -49,7 +51,7 @@ public class PostAdapter extends BaseAdapter {
         Post post = posts.get(position);
         img.setImageBitmap(post.getImg_path_as_bitmap());
         Log.d("TAG_TEST", "onDataChange: " + posts);
-        time_date.setText(post.getDate());
+        time_date.setText(post.getTime() + " " + post.getDate());
         caption.setText(post.getCaption());
         platform.setText(post.getShare_on());
 
