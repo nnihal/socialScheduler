@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -62,14 +61,14 @@ public class PostAdapter extends BaseAdapter {
         time_date.setText(post.getTime() + " " + post.getDate());
         caption.setText(post.getCaption());
         platform.setText(post.getShare_on());
-        delete_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(User.id).child("posts").child(post.getKey());
-                mDatabase.removeValue();
-                posts.remove(posts.remove(position));
-            }
-        });
+//        delete_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(User.id).child("posts").child(post.getKey());
+//                mDatabase.removeValue();
+//                posts.remove(posts.remove(position));
+//            }
+//        });
         return rowView;
     }
 
