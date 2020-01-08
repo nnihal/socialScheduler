@@ -9,25 +9,37 @@
         android:layout_height="75dp" />
 
     <TextView
-        android:id="@+id/textView_time"
-        android:layout_width="148dp"
-        android:layout_height="76dp"
+        android:id="@+id/textView_caption"
+        android:layout_width="108dp"
+        android:layout_height="75dp"
         android:layout_alignBottom="@+id/imageView_personpic"
         android:layout_alignParentTop="true"
         android:layout_marginStart="6dp"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="6dp"
-        android:layout_toStartOf="@+id/textView_date"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toStartOf="@+id/textView_time_date"
         android:layout_toEndOf="@+id/imageView_personpic"
-        android:textAlignment="center"/>
-
-    <TextView
-        android:id="@+id/textView_date"
-        android:layout_width="148dp"
-        android:layout_height="76dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         android:textAlignment="center" />
 
+    <TextView
+        android:id="@+id/textView_time_date"
+        android:layout_width="94dp"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@+id/textView_platform"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView_platform"
+        android:layout_width="94dp"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="15dp"
+        android:textAlignment="center" />
 
 </RelativeLayout>

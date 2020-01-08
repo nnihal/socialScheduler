@@ -37,6 +37,7 @@ public class CreatePost extends AppCompatActivity {
 
     @BindView(R.id.in_date) EditText txtDate;
     @BindView(R.id.in_time) EditText txtTime;
+    @BindView(R.id.textView_platform) EditText txtPlatform;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -132,10 +133,8 @@ public class CreatePost extends AppCompatActivity {
         post.setShare_on("twitter");
 //        ScheduleActivity.posts.add(post);
         // save to firebase realtime database
-        post.setCaption("captionik");
-
-//        Post postik;
-//        postik = new Post(img_path, caption, time, date, share_on);
+//        post.setCaption("captionik");
+        post.setCaption(txtPlatform.getText().toString());
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         String key = mDatabase.push().getKey();
@@ -148,6 +147,7 @@ public class CreatePost extends AppCompatActivity {
     @OnClick(R.id.share_on_instagram)
     public void share_instagram(){
         post.setShare_on("instagram");
+        post.setCaption(txtPlatform.getText().toString());
 //        ScheduleActivity.posts.add(post);
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);

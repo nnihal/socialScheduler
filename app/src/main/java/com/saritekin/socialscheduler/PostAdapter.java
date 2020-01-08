@@ -2,7 +2,6 @@ package com.saritekin.socialscheduler;
 
 import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.File;
 import java.util.List;
 
 public class PostAdapter extends BaseAdapter {
@@ -45,14 +43,15 @@ public class PostAdapter extends BaseAdapter {
         View rowView;
         rowView = inflater.inflate(R.layout.layout_listview_post_template, null);
         ImageView img = rowView.findViewById(R.id.imageView_personpic);
-        TextView date = rowView.findViewById(R.id.textView_date);
-        TextView time = rowView.findViewById(R.id.textView_time);
+        TextView time_date = rowView.findViewById(R.id.textView_time_date);
+        TextView caption = rowView.findViewById(R.id.textView_caption);
+        TextView platform = rowView.findViewById(R.id.textView_platform);
         Post post = posts.get(position);
-//        img.setImageBitmap(post.getImg_path_as_bitmap());
-        img.setImageURI(Uri.fromFile(new File(post.getImg_path())));
+        img.setImageBitmap(post.getImg_path_as_bitmap());
         Log.d("TAG_TEST", "onDataChange: " + posts);
-        date.setText(post.getDate());
-        time.setText(post.getTime());
+        time_date.setText(post.getDate());
+        caption.setText(post.getCaption());
+        platform.setText(post.getShare_on());
 
         return rowView;
     }
