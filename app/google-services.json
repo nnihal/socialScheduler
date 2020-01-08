@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "191198364653",
+    "firebase_url": "https://socialscheduler-5f47a.firebaseio.com",
+    "project_id": "socialscheduler-5f47a",
+    "storage_bucket": "socialscheduler-5f47a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191198364653:android:d5c5fac5edcb209f41dde4",
+        "android_client_info": {
+          "package_name": "com.saritekin.socialscheduler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191198364653-15e38mo43rtr4vk4u16p88r7poir8dug.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.saritekin.socialscheduler",
+            "certificate_hash": "b07f47c356129f67dec26a22edc2b5f1f918767d"
+          }
+        },
+        {
+          "client_id": "191198364653-h4phmkt10m3vf02o7ljlnq1fbf2jo7jl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSJGJk_gcr2H8AHDNkDCG830csMFws4Z0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191198364653-h4phmkt10m3vf02o7ljlnq1fbf2jo7jl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
