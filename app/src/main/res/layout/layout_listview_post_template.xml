@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/template_relativeLayout"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -24,22 +25,37 @@
 
     <TextView
         android:id="@+id/textView_time_date"
-        android:layout_width="94dp"
+        android:layout_width="95dp"
         android:layout_height="75dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="7dp"
         android:layout_toStartOf="@+id/textView_platform"
         android:textAlignment="center" />
 
     <TextView
         android:id="@+id/textView_platform"
-        android:layout_width="94dp"
+        android:layout_width="72dp"
         android:layout_height="75dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="51dp"
         android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/delete_btn"
+        android:layout_width="44dp"
+        android:layout_height="75dp"
+        android:textSize="12sp"
+        android:text="Del"
+        android:padding="5dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-1dp"
+        android:textAlignment="center"
+        android:background="@color/mdtp_red_focused"/>
 
 </RelativeLayout>
