@@ -94,7 +94,6 @@ public class CreatePost extends AppCompatActivity {
         mMonth = c.get(Calendar.MONTH);
         mDay = c.get(Calendar.DAY_OF_MONTH);
 
-
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,
                 (view, year, monthOfYear, dayOfMonth) -> {
                     txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);

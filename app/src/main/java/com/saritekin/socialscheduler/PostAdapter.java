@@ -67,6 +67,7 @@ public class PostAdapter extends BaseAdapter {
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference();
                 mDatabase.child("users").child(User.id).child("posts").child(post.getKey()).removeValue();
+                posts.remove(posts.remove(position));
             }
         });
         return rowView;
