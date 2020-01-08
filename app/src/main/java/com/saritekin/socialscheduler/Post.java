@@ -28,6 +28,7 @@ public class Post {
     public String getImg_path() {
         return img_path;
     }
+
     public Bitmap getImg_path_as_bitmap() {return BitmapFactory.decodeFile(String.valueOf(img_path));}
 
     public void setImg_path(String img_path) { this.img_path = img_path; }

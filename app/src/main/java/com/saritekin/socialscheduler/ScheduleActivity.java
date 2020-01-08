@@ -62,12 +62,12 @@ public class ScheduleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_schedule);
 
         ButterKnife.bind(this);
-        if (!posts.isEmpty()) {
+
             Log.d("TAG_TEST", "SETTING ADAPTER DATA: " + posts);
 
             adapter = new PostAdapter(this, postsList);
             listView.setAdapter(adapter);
-        }
+
     }
 
     @Override

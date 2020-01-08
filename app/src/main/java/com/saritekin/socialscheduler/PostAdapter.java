@@ -2,6 +2,8 @@ package com.saritekin.socialscheduler;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
 import java.util.List;
 
 public class PostAdapter extends BaseAdapter {
@@ -45,7 +48,9 @@ public class PostAdapter extends BaseAdapter {
         TextView date = rowView.findViewById(R.id.textView_date);
         TextView time = rowView.findViewById(R.id.textView_time);
         Post post = posts.get(position);
-        img.setImageBitmap(post.getImg_path_as_bitmap());
+//        img.setImageBitmap(post.getImg_path_as_bitmap());
+        img.setImageURI(Uri.fromFile(new File(post.getImg_path())));
+        Log.d("TAG_TEST", "onDataChange: " + posts);
         date.setText(post.getDate());
         time.setText(post.getTime());
 
