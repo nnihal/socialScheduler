@@ -49,7 +49,6 @@ public class CreatePost extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -140,6 +139,7 @@ public class CreatePost extends AppCompatActivity {
         post.setCaption(txtPlatform.getText().toString());
         mDatabase = FirebaseDatabase.getInstance().getReference();
         String key = mDatabase.push().getKey();
+        post.setKey(key);
         mDatabase.child("users").child(User.id).child("posts").child(key).setValue(post.toMap());
 
         Intent intent = new Intent(this, ScheduleActivity.class);
@@ -154,12 +154,9 @@ public class CreatePost extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         String key = mDatabase.push().getKey();
         mDatabase.child("users").child(User.id).child("posts").child(key).setValue(post.toMap());
-
+        post.setKey(key);
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
     }
-
-
-
 
 }
