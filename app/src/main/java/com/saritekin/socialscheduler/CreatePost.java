@@ -1,5 +1,6 @@
 package com.saritekin.socialscheduler;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -22,9 +23,11 @@ import java.util.Calendar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import pub.devrel.easypermissions.EasyPermissions;
 
 public class CreatePost extends AppCompatActivity {
 
+    private String[] galleryPermissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private static int RESULT_LOAD_IMAGE = 1;
     private static int POST_REQUEST = 200;
     private int mYear, mMonth, mDay, mHour, mMinute;
@@ -69,10 +72,16 @@ public class CreatePost extends AppCompatActivity {
 
     @OnClick(R.id.add_image_button)
     public void load_img(){
-        Intent intent = new Intent(
-                Intent.ACTION_PICK,
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, RESULT_LOAD_IMAGE);
+        if (EasyPermissions.hasPermissions(this, galleryPermissions)) {
+            Intent intent = new Intent(
+                    Intent.ACTION_PICK,
+                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(intent, RESULT_LOAD_IMAGE);
+        } else {
+            EasyPermissions.requestPermissions(this, "Access for storage",
+                    101, galleryPermissions);
+        }
+
     }
 
     @OnClick(R.id.btn_date)
