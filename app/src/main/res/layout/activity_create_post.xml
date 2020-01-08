@@ -35,7 +35,7 @@
         android:layout_marginTop="10dp"
         android:backgroundTint="#03A9F4"
         android:imeOptions="actionDone"
-        android:fontFamily="@font/allerta"/>
+        android:fontFamily="@font/allerta" />
 
     <EditText
         android:id="@+id/in_date"
@@ -69,8 +69,6 @@
         android:text="SELECT TIME" />
 
 
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,33 +79,34 @@
         android:textColor="#3F51B5"
         android:textSize="20sp" />
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginTop="20dp">
-    <Button
-        android:id="@+id/share_on_twitter"
-        android:layout_width="110dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#03A9F4"
-        android:fontFamily="@font/allerta"
-        android:layout_weight="1"
-        android:text="Twitter" />
+        android:layout_marginTop="20dp">
 
-    <Button
-        android:id="@+id/share_on_instagram"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#03A9F4"
-        android:fontFamily="@font/allerta"
-        android:layout_weight="1"
+        <Button
+            android:id="@+id/share_on_twitter"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#03A9F4"
+            android:fontFamily="@font/allerta"
+            android:layout_weight="1"
+            android:text="Twitter" />
 
-        android:text="Instagram" />
-</LinearLayout>
+        <Button
+            android:id="@+id/share_on_instagram"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#03A9F4"
+            android:fontFamily="@font/allerta"
+            android:layout_weight="1"
+
+            android:text="Instagram" />
+    </LinearLayout>
 
 </LinearLayout>

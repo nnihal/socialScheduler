@@ -32,7 +32,8 @@ public class ScheduleActivity extends AppCompatActivity {
     public static HashSet<Post> posts = new HashSet<>();
     PostAdapter adapter;
 
-    @BindView(R.id.schedule_listview) ListView listView;
+    @BindView(R.id.schedule_listview)
+    ListView listView;
 //    List<Post> posts = new ArrayList<>();
 
     @Override
@@ -41,18 +42,18 @@ public class ScheduleActivity extends AppCompatActivity {
         String report = "";
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-        if(preferences.getString("login_twitter", "no").equals("yes")){
+        if (preferences.getString("login_twitter", "no").equals("yes")) {
             report = report + "login_twitter = yes \n";
-        } else if (preferences.getString("login_twitter", "no").equals("no")){
+        } else if (preferences.getString("login_twitter", "no").equals("no")) {
             report = report + "login_twitter = no \n";
         }
-        if(preferences.getString("login_instagram", "no").equals("yes")){
+        if (preferences.getString("login_instagram", "no").equals("yes")) {
             report = report + "login_instagram = yes \n";
 
-        } else if (preferences.getString("login_instagram", "no").equals("no")){
+        } else if (preferences.getString("login_instagram", "no").equals("no")) {
             report = report + "login_instagram = no \n";
         }
-        Toast.makeText(this,report, Toast.LENGTH_LONG).show( );
+        Toast.makeText(this, report, Toast.LENGTH_LONG).show();
 
         getDataFromFirebase();
         List<Post> postsList = new ArrayList<>();
@@ -63,10 +64,10 @@ public class ScheduleActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-            Log.d("TAG_TEST", "SETTING ADAPTER DATA: " + posts);
+        Log.d("TAG_TEST", "SETTING ADAPTER DATA: " + posts);
 
-            adapter = new PostAdapter(this, postsList);
-            listView.setAdapter(adapter);
+        adapter = new PostAdapter(this, postsList);
+        listView.setAdapter(adapter);
 
     }
 
@@ -77,7 +78,7 @@ public class ScheduleActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.add_button)
-    public void create_post(){
+    public void create_post() {
         Intent intent = new Intent(this, CreatePost.class);
         startActivity(intent);
     }
@@ -86,7 +87,7 @@ public class ScheduleActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        switch (id){
+        switch (id) {
             case R.id.settings:
                 Intent intent = new Intent(this, Settings.class);
                 startActivity(intent);
@@ -95,14 +96,14 @@ public class ScheduleActivity extends AppCompatActivity {
         }
     }
 
-    public  void getDataFromFirebase(){
+    public void getDataFromFirebase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("users/"+User.id+"/posts");
+        DatabaseReference ref = database.getReference("users/" + User.id + "/posts");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot p: dataSnapshot.getChildren()) {
+                for (DataSnapshot p : dataSnapshot.getChildren()) {
                     posts.add(p.getValue(Post.class));
                 }
                 adapter.getPosts().clear();

@@ -22,7 +22,7 @@ public class InstagramLogin extends AppCompatActivity {
     }
 
     @OnClick(R.id.login_button_instagram)
-    public void login(){
+    public void login() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("login_instagram", "yes");

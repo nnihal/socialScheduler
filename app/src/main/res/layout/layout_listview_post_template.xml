@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/template_relativeLayout"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
@@ -56,6 +57,6 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="-1dp"
         android:textAlignment="center"
-        android:background="@color/mdtp_red_focused"/>
+        android:background="@color/mdtp_red_focused" />
 
 </RelativeLayout>

@@ -14,8 +14,10 @@ import butterknife.ButterKnife;
 
 public class Settings extends AppCompatActivity {
 
-    @BindView(R.id.switch_instagram) Switch switch_instagram;
-    @BindView(R.id.switch_twitter) Switch switch_twitter;
+    @BindView(R.id.switch_instagram)
+    Switch switch_instagram;
+    @BindView(R.id.switch_twitter)
+    Switch switch_twitter;
 
 
     @Override
@@ -28,9 +30,9 @@ public class Settings extends AppCompatActivity {
         switch_twitter.setChecked(preferences.getString("login_twitter", "no").equals("yes"));
         switch_instagram.setChecked(preferences.getString("login_instagram", "no").equals("yes"));
 
-        switch_twitter.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+        switch_twitter.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged (CompoundButton buttonView,boolean isChecked){
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     Intent intent = new Intent(Settings.this, TwitterLogin.class);
                     startActivity(intent);
@@ -44,9 +46,9 @@ public class Settings extends AppCompatActivity {
 
         });
 
-        switch_instagram.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+        switch_instagram.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged (CompoundButton buttonView,boolean isChecked){
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     Intent intent = new Intent(Settings.this, InstagramLogin.class);
                     startActivity(intent);

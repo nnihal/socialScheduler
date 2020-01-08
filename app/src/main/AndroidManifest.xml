@@ -25,7 +25,9 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".TwitterLogin" />
         <activity android:name=".InstagramLogin" />
-        <activity android:name=".ChooseLogin" android:noHistory="true">
+        <activity
+            android:name=".ChooseLogin"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

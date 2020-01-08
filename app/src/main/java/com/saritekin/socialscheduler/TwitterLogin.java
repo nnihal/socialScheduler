@@ -20,7 +20,7 @@ public class TwitterLogin extends AppCompatActivity {
     }
 
     @OnClick(R.id.login_button_twitter)
-    public void login(){
+    public void login() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("login_twitter", "yes");
