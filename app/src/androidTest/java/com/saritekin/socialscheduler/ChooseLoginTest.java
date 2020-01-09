@@ -1,20 +1,21 @@
 package com.saritekin.socialscheduler;
 
-import org.junit.Test;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.filters.LargeTest;
 
-import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
 
+@LargeTest
+@RunWith(AndroidJUnit4.class)
 public class ChooseLoginTest {
 
-    @Test
-    public void onCreate() {
-    }
-
-    @Test
-    public void with_twitter() {
-    }
-
-    @Test
-    public void with_Instagram() {
-    }
+//    @Rule
+//    public ActivityTestRule<ChooseLogin> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+//
+//    @Test
+//    public void mainActivityTest() {
+//        ViewInteraction appCompatButton = onView(
+//                allOf(withId(R.id.myButton), withText("Click me"), isDisplayed()));
+//        appCompatButton.perform(click());
+//    }
 }

@@ -68,9 +68,7 @@
             android:fontFamily="@font/allerta"
             android:text="@string/notification_after_sending"
             android:layout_gravity="center"/>
-
-
-
     </LinearLayout>
+
 
 </LinearLayout>

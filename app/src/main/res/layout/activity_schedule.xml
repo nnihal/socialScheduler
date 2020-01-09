@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:background="#B388FF"
     tools:context=".ScheduleActivity">
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/schedule_listview">
-    </ListView>
+        android:id="@+id/schedule_listview"></ListView>
 
     <Button
         android:id="@+id/add_button"
@@ -22,7 +22,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
-        android:text="@string/plus"
-        />
+        android:text="@string/plus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

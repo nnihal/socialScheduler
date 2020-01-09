@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E8F5E9"
-    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/imageView_personpic"
@@ -55,6 +54,10 @@
         android:id="@+id/delete_btn"
         android:layout_width="44dp"
         android:layout_height="75dp"
+        android:textSize="12sp"
+        android:text="Del"
+        android:padding="5dp"
+        android:gravity="center"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="0dp"

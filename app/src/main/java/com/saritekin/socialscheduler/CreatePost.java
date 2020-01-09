@@ -36,8 +36,14 @@ public class CreatePost extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
-    @BindView(R.id.in_date) EditText txtDate;
-    @BindView(R.id.in_time) EditText txtTime;
+    @BindView(R.id.in_date)
+    EditText txtDate;
+    @BindView(R.id.in_time)
+    EditText txtTime;
+
+    @Nullable
+    @BindView(R.id.textView_platform)
+    EditText txtPlatform;
 
     @Nullable
     @BindView(R.id.textView_platform) EditText txtPlatform;
@@ -55,7 +61,7 @@ public class CreatePost extends AppCompatActivity {
 
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
             Uri selectedImage = data.getData();
-            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+            String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
             Cursor cursor = getContentResolver().query(selectedImage,
                     filePathColumn, null, null, null);
@@ -74,7 +80,7 @@ public class CreatePost extends AppCompatActivity {
 
 
     @OnClick(R.id.add_image_button)
-    public void load_img(){
+    public void load_img() {
         if (EasyPermissions.hasPermissions(this, galleryPermissions)) {
             Intent intent = new Intent(
                     Intent.ACTION_PICK,
@@ -88,7 +94,7 @@ public class CreatePost extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn_date)
-    public void choose_date(){
+    public void choose_date() {
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
@@ -107,7 +113,7 @@ public class CreatePost extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn_time)
-    public void choose_time(){
+    public void choose_time() {
         // Get Current Time
         final Calendar c = Calendar.getInstance();
         mHour = c.get(Calendar.HOUR_OF_DAY);
@@ -130,7 +136,7 @@ public class CreatePost extends AppCompatActivity {
     }
 
     @OnClick(R.id.share_on_twitter)
-    public void share_twitter(){
+    public void share_twitter() {
         post.setShare_on("twitter");
 //        ScheduleActivity.posts.add(post);
         // save to firebase realtime database
@@ -146,7 +152,7 @@ public class CreatePost extends AppCompatActivity {
     }
 
     @OnClick(R.id.share_on_instagram)
-    public void share_instagram(){
+    public void share_instagram() {
         post.setShare_on("instagram");
         post.setCaption(txtPlatform.getText().toString());
 //        ScheduleActivity.posts.add(post);

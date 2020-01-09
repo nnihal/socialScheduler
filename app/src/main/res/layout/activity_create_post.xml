@@ -70,6 +70,7 @@
         android:fontFamily="@font/allerta"
         android:text="SELECT TIME" />
 
+
     <TextView
         android:layout_width="119dp"
         android:layout_height="wrap_content"
@@ -108,5 +109,6 @@
 
         android:text="Instagram" />
 </LinearLayout>
+
 
 </LinearLayout>

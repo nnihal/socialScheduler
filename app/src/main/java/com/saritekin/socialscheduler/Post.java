@@ -15,7 +15,8 @@ public class Post {
     private String date = "";
     private String share_on = "";
 
-    public Post(){}
+    public Post() {
+    }
 
     public Post(String key, String img_path, String caption, String time, String date, String share_on) {
         this.key = key;
@@ -38,9 +39,13 @@ public class Post {
         return img_path;
     }
 
-    public Bitmap getImg_path_as_bitmap() {return BitmapFactory.decodeFile(String.valueOf(img_path));}
+    public Bitmap getImg_path_as_bitmap() {
+        return BitmapFactory.decodeFile(String.valueOf(img_path));
+    }
 
-    public void setImg_path(String img_path) { this.img_path = img_path; }
+    public void setImg_path(String img_path) {
+        this.img_path = img_path;
+    }
 
     public String getCaption() {
         return caption;
@@ -74,11 +79,11 @@ public class Post {
         this.share_on = share_on;
     }
 
-    public String toString(){
-        return "Post{img_path='"+img_path+"', caption='" + caption + "', time='" + time + "', date='"+ date+ "', share_on='"+ share_on + "'}";
+    public String toString() {
+        return "Post{img_path='" + img_path + "', caption='" + caption + "', time='" + time + "', date='" + date + "', share_on='" + share_on + "'}";
     }
 
-    public HashMap<String, String> toMap(){
+    public HashMap<String, String> toMap() {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("img_path", img_path);
         map.put("caption", caption);
