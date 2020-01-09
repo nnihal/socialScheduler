@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TimePicker;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
@@ -38,13 +39,15 @@ public class CreatePost extends AppCompatActivity {
     @BindView(R.id.in_date) EditText txtDate;
     @BindView(R.id.in_time) EditText txtTime;
 
+    @Nullable
+    @BindView(R.id.textView_platform) EditText txtPlatform;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post);
         ButterKnife.bind(this);
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -91,7 +94,6 @@ public class CreatePost extends AppCompatActivity {
         mMonth = c.get(Calendar.MONTH);
         mDay = c.get(Calendar.DAY_OF_MONTH);
 
-
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,
                 (view, year, monthOfYear, dayOfMonth) -> {
                     txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
@@ -132,13 +134,11 @@ public class CreatePost extends AppCompatActivity {
         post.setShare_on("twitter");
 //        ScheduleActivity.posts.add(post);
         // save to firebase realtime database
-        post.setCaption("captionik");
-
-//        Post postik;
-//        postik = new Post(img_path, caption, time, date, share_on);
-
+//        post.setCaption("captionik");
+        post.setCaption(txtPlatform.getText().toString());
         mDatabase = FirebaseDatabase.getInstance().getReference();
         String key = mDatabase.push().getKey();
+        post.setKey(key);
         mDatabase.child("users").child(User.id).child("posts").child(key).setValue(post.toMap());
 
         Intent intent = new Intent(this, ScheduleActivity.class);
@@ -148,12 +148,14 @@ public class CreatePost extends AppCompatActivity {
     @OnClick(R.id.share_on_instagram)
     public void share_instagram(){
         post.setShare_on("instagram");
+        post.setCaption(txtPlatform.getText().toString());
 //        ScheduleActivity.posts.add(post);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        String key = mDatabase.push().getKey();
+        mDatabase.child("users").child(User.id).child("posts").child(key).setValue(post.toMap());
+        post.setKey(key);
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
     }
-
-
-
 
 }

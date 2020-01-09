@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ScheduleActivity">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:background="#B388FF"
+    android:orientation="vertical">
 
-    <RelativeLayout
+
+    <LinearLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#CDDC39"
-        android:orientation="vertical">
+        android:background="#B388FF"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="168dp"
-            android:layout_marginTop="91dp"
             android:fontFamily="@font/allerta"
             android:text="@string/title_activity_settings"
-            android:textColor="#03A9F4"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textColor="#191970"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp"
+            />
 
         <Switch
             android:id="@+id/switch_instagram"
             android:layout_width="246dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/switch3"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="21dp"
-            android:layout_marginEnd="64dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:checked="false"
             android:fontFamily="@font/allerta"
             android:text="@string/instagram" />
@@ -42,10 +44,8 @@
             android:id="@+id/switch_twitter"
             android:layout_width="246dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/switch_instagram"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="21dp"
-            android:layout_marginEnd="65dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/allerta"
             android:text="@string/twitter" />
 
@@ -53,28 +53,24 @@
             android:id="@+id/switch3"
             android:layout_width="246dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/switch2"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="21dp"
-            android:layout_marginEnd="65dp"
+            android:layout_gravity="center"
             android:fontFamily="@font/allerta"
+            android:layout_marginBottom="10dp"
             android:text="@string/share_crash_reports"
-            tools:checked="true" />
+            android:checked="true" />
 
         <Switch
             android:id="@+id/switch2"
             android:layout_width="246dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="170dp"
-            android:layout_marginEnd="67dp"
             android:checked="true"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/allerta"
-            android:text="@string/notification_after_sending" />
+            android:text="@string/notification_after_sending"
+            android:layout_gravity="center"/>
 
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

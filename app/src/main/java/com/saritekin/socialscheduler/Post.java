@@ -8,7 +8,7 @@ import java.util.Objects;
 
 
 public class Post {
-
+    private String key = "";
     private String img_path = "";
     private String caption = "";
     private String time = "";
@@ -17,12 +17,21 @@ public class Post {
 
     public Post(){}
 
-    public Post(String img_path, String caption, String time, String date, String share_on) {
+    public Post(String key, String img_path, String caption, String time, String date, String share_on) {
+        this.key = key;
         this.img_path = img_path;
         this.caption = caption;
         this.time = time;
         this.date = date;
         this.share_on = share_on;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getImg_path() {
@@ -95,4 +104,5 @@ public class Post {
     public int hashCode() {
         return Objects.hash(img_path, caption, time, date, share_on);
     }
+
 }
